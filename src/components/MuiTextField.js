@@ -1,11 +1,11 @@
-import { InputAdornment, Stack, TextField } from "@mui/material";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import React, { useState } from "react";
+import { InputAdornment, Stack, TextField } from '@mui/material';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import React, { useState } from 'react';
 
 const MuiTextField = () => {
   const [status, setStatus] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   return (
     <Stack spacing={4} style={{ margin: 40 }}>
       <Stack spacing={2} direction="row">
@@ -15,11 +15,15 @@ const MuiTextField = () => {
           label="name"
           variant="standard"
           value={value}
+          type="text"
           onChange={(e) => setValue(e.target.value)}
           required
           error={!value}
-          helperText={!value ? "Required" : "Don't share your credentials"}
+          helperText={!value ? 'Required' : "Don't share your credentials"}
         />
+        <TextField type="text" labelType="email" placeholder="Enter Email" />
+        <TextField type="text" placeholder="Some Text" />
+        <TextField variant="outlined" />
       </Stack>
       <Stack spacing={2} direction="row">
         <TextField label="readonly" InputProps={{ readOnly: true }} />
@@ -30,6 +34,7 @@ const MuiTextField = () => {
             variant="outlined"
             required
             helperText="Don't share your credentials"
+            onChange={(e) => setValue(e.target.value)}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
